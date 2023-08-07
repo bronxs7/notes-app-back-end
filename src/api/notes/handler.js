@@ -37,7 +37,7 @@ class NotesHandler {
         response.code(error.statusCode);
         return response;
       }
-      
+
       //SERVER ERROR
       const response = h.response({
         status: 'error',
