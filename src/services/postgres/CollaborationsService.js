@@ -30,7 +30,7 @@ class CollaborationsService {
       values: [noteId, userId],
     };
 
-    const result = this._pool.query(query);
+    const result = await this._pool.query(query);
 
     if (!result.rows.length) {
       throw new InvariantError('Kolaborasi gagal dihapus');
@@ -43,9 +43,9 @@ class CollaborationsService {
       values: [noteId, userId],
     };
 
-    const result = this._pool.query(query);
+    const result = await this._pool.query(query);
 
-    if (!(await result).rows.length) {
+    if (!result.rows.length) {
       throw new InvariantError('Kolaborasi gagal diverifikasi');
     }
   }
